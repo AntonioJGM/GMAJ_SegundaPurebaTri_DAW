@@ -1,0 +1,17 @@
+<h2>Series</h2>
+<ul>
+    @for (s of Series$ | async; track s.id){
+        <li>
+            <h3 [routerLink]="['/series', s.id]">{{s.title}}</h3>
+        </li>
+        <li>
+            <p [routerLink]="['/series', s.channel]">{{s.channel}}</p>
+        </li>
+        <li>
+            <p [routerLink]="['/series', s.rating]">{{s.rating}}</p>
+        </li>
+    }@empty {
+        <li>No se han encontrado series</li>
+    }
+        
+</ul>

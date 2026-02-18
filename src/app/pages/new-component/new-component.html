@@ -1,0 +1,52 @@
+<form [formGroup]="newForm" (ngSubmit)="onSubmit()">
+
+  <!-- Title -->
+  <div>
+    <label>Title</label>
+    <input type="text" formControlName="title">
+
+    @if (title?.touched && title?.invalid) {
+      <div>
+        @if (title?.errors?.['required']) {
+          <small>El título es obligatorio.</small>
+        }
+        @if (title?.errors?.['minlength']) {
+          <small>Debe tener al menos 3 caracteres.</small>
+        }
+      </div>
+    }
+  </div>
+
+  <!-- Channel -->
+  <div>
+    <label>Channel</label>
+    <input type="text" formControlName="channel">
+
+    @if (channel?.touched && channel?.invalid) {
+      <small>El canal es obligatorio.</small>
+    }
+  </div>
+
+  <!-- Rating -->
+  <div>
+    <label>Rating</label>
+    <input type="number" formControlName="rating">
+
+    @if (rating?.touched && rating?.invalid) {
+      <div>
+        @if (rating?.errors?.['required']) {
+          <small>El rating es obligatorio.</small>
+        }
+        @if (rating?.errors?.['min'] || rating?.errors?.['max']) {
+          <small>El rating debe estar entre 0 y 10.</small>
+        }
+      </div>
+    }
+  </div>
+
+  <!-- Botón -->
+  <button type="submit" [disabled]="newForm.invalid">
+    Enviar
+  </button>
+
+</form>
