@@ -39,5 +39,5 @@ jobs:
           host: ${{ secrets.VPS_HOST }}
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          source: "dist/examen-app/*"
+          source: "dist/GMAJ_PruebaTrimestral2_DWEC/*"
           target: "/var/www/html/examen"
