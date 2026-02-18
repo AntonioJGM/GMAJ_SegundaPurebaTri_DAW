@@ -24,7 +24,6 @@ jobs:
           ls -la dist/* || true
           ls -la dist/*/browser || true
 
-      # AJUSTA EL path cuando veas la estructura en logs
       - name: Deploy via rsync
         uses: burnett01/rsync-deployments@7.0.1
         with:
