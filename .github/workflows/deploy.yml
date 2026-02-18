@@ -22,7 +22,7 @@ jobs:
         run: npm ci
 
       - name: Build producción
-        run: ng build --configuration production
+        run: npx ng build --configuration production
 
       - name: Deploy al VPS
         uses: appleboy/ssh-action@v1.0.0
@@ -32,7 +32,7 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             rm -rf /var/www/html/examen/*
-            
+
       - name: Copiar archivos al VPS
         uses: appleboy/scp-action@v0.1.3
         with:
